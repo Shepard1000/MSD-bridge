@@ -48,24 +48,20 @@
         cursor: pointer;
       }
     </style>
-    <script>
-      function openDirect() {
-        window.open('https://webterminal.metatrader5.com/', '_blank', 'noopener');
-      }
-      document.addEventListener('DOMContentLoaded', () => {
-        const iframe = document.getElementById('terminal');
-        iframe.src = 'https://webterminal.metatrader5.com/';
-      });
-    </script>
   </head>
   <body>
     <div class="wrap">
       <div class="header">Malusi's MT5 WebTerminal Bridge</div>
       <div class="frame">
-        <iframe id="terminal" title="MT5 WebTerminal" allow="clipboard-read; clipboard-write"></iframe>
+        <iframe 
+          src="https://webterminal.metatrader5.com/" 
+          title="MT5 WebTerminal" 
+          allow="clipboard-read; clipboard-write">
+        </iframe>
       </div>
       <div class="footer">
-        If the terminal doesn’t load, click <span class="btn" onclick="openDirect()">Open in new tab</span>.
+        If the terminal doesn’t load, click 
+        <a class="btn" href="https://webterminal.metatrader5.com/" target="_blank" rel="noopener">Open in new tab</a>.
       </div>
     </div>
   </body>
