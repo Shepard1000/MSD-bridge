@@ -3,38 +3,69 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MT5 WebTerminal Bridge</title>
+    <title>Malusi's MT5 WebTerminal Bridge</title>
     <style>
-      html, body { height: 100%; width: 100%; margin: 0; background: #0f111a; }
-      .wrap { height: 100%; width: 100%; display: flex; flex-direction: column; }
-      .bar { padding: 10px 14px; color: #e6e6e6; font: 600 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial; background: #151821; border-bottom: 1px solid #202431; }
-      .frame { flex: 1 1 auto; }
-      .frame iframe { width: 100%; height: 100%; border: 0; }
-      .note { padding: 10px 14px; color: #bfbfbf; background: #0f111a; border-top: 1px solid #202431; font: 12px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Arial; }
-      .btn { color: #72e3a6; text-decoration: underline; cursor: pointer; }
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        background: #0f111a;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      }
+      .wrap {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+      }
+      .header {
+        padding: 12px 16px;
+        background: #151821;
+        color: #72e3a6;
+        font-weight: 600;
+        font-size: 16px;
+        border-bottom: 1px solid #202431;
+      }
+      .frame {
+        flex: 1;
+        overflow: hidden;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      .footer {
+        padding: 10px 16px;
+        background: #0f111a;
+        color: #bfbfbf;
+        font-size: 13px;
+        border-top: 1px solid #202431;
+      }
+      .btn {
+        color: #72e3a6;
+        text-decoration: underline;
+        cursor: pointer;
+      }
     </style>
     <script>
-      // Fallback open-in-new-tab if embedding is blocked by CSP/X-Frame-Options
       function openDirect() {
         window.open('https://webterminal.metatrader5.com/', '_blank', 'noopener');
       }
-      // On load, attempt to set src; some environments may still block framing
       document.addEventListener('DOMContentLoaded', () => {
         const iframe = document.getElementById('terminal');
-        try { iframe.src = 'https://webterminal.metatrader5.com/'; }
-        catch (e) { /* fallback handled by button */ }
+        iframe.src = 'https://webterminal.metatrader5.com/';
       });
     </script>
   </head>
   <body>
     <div class="wrap">
-      <div class="bar">MT5 WebTerminal Bridge</div>
+      <div class="header">Malusi's MT5 WebTerminal Bridge</div>
       <div class="frame">
         <iframe id="terminal" title="MT5 WebTerminal" allow="clipboard-read; clipboard-write"></iframe>
       </div>
-      <div class="note">
-        If the terminal doesn’t appear here, click
-        <span class="btn" onclick="openDirect()">Open in new tab</span>.
+      <div class="footer">
+        If the terminal doesn’t load, click <span class="btn" onclick="openDirect()">Open in new tab</span>.
       </div>
     </div>
   </body>
